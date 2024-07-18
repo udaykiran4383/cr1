@@ -1,0 +1,26 @@
+<!-- tasks.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for task in tasks %}
+            <div>
+                <p>{{ task.question }}</p>
+                <input type="radio" name="task_{{ task.id }}" value="{{ task.option1 }}" required> {{ task.option1 }}<br>
+                <input type="radio" name="task_{{ task.id }}" value="{{ task.option2 }}"> {{ task.option2 }}<br>
+                <input type="radio" name="task_{{ task.id }}" value="{{ task.option3 }}"> {{ task.option3 }}<br>
+                <input type="radio" name="task_{{ task.id }}" value="{{ task.option4 }}"> {{ task.option4 }}<br>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+

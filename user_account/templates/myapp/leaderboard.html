@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Leaderboards</h1>
+
+<h2>College Leaderboard</h2>
+<table>
+    <tr>
+        <th>College</th>
+        <th>Total Points</th>
+    </tr>
+    {% for entry in college_leaderboard %}
+        <tr>
+            <td>{{ entry.college.name }}</td>
+            <td>{{ entry.total_points }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h2>Individual Leaderboard</h2>
+<table>
+    <tr>
+        <th>Student</th>
+        <th>Points</th>
+    </tr>
+    {% for entry in individual_leaderboard %}
+        <tr>
+            <td>{{ entry.student.name }}</td>
+            <td>{{ entry.points }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

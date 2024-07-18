@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+</head>
+<body>
+    <h1>Registration Successful</h1>
+
+    <h2>Teams</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>District</th>
+                <th>College</th>
+                <th>Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in teams %}
+            <tr>
+                <td>{{ team.state }}</td>
+                <td>{{ team.district }}</td>
+                <td>{{ team.college }}</td>
+                <td>
+                    <ul>
+                        {% for student in team.students %}
+                        <li>{{ student.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'tasks_view' %}" class="btn btn-primary">Go to Tasks</a>
+</body>
+</html>
